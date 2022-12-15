@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="css/vars.css">
     <link rel="stylesheet" href="css/helpers.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/gallery.css">
 </head>
 
-<body class="flex column">
+<body class="flex column" onload="onInit()">
     <header class="flex column">
         <div class="flex row main-layout header-container">
             <h3 class="logo header-logo">Meme Generator</h3>
@@ -22,11 +23,15 @@
         </div>
     </header>
     <main class="flex column">
-        <section class="template-gallery">Hello gallery</section>
+        <section class="main-layout flex column gallery-warpper">
+            <div class="grid gallery"></div>
+        </section>
     </main>
     <footer class="flex row">
         <h5 class="main-layout copyrights">All rights reserved 2022©</h5>
     </footer>
+    <script src="dist/services/gallery-service.js"></script>
+    <script src="dist/controllers/gallery-controller.js"></script>
 </body>
 
 </html>
