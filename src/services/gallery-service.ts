@@ -32,4 +32,5 @@ function setTemplate(templateId: number) {
     } | undefined = gTemplates.find(template => template._id === templateId)
     if (newTemplate === undefined) return console.log('Cannot set template')
     gCurrTemplate = newTemplate
+    console.log('gCurrTemplate:', gCurrTemplate)
 }

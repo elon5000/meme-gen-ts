@@ -19,10 +19,10 @@ function renderGallery() {
         </div>
         `
     })
-    console.log('templates:', templates)
     elGallery.innerHTML = strHTMLs.join('')
 }
 
 function onSetTemplate(templateId:number) {
     setTemplate(templateId)
+    onSetEditorHidden(false)
 }

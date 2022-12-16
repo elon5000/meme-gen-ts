@@ -26,6 +26,14 @@ header {
     justify-content: space-between;
 }
 
+.header-logo {
+    cursor: pointer;
+}
+
+.header-logo:hover {
+    transform: scale(1.02);
+}
+
 main {
     flex: 1;
     padding: 4px 0;

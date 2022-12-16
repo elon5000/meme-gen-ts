@@ -18,3 +18,11 @@
 .main-layout {
     width: 90%;
 }
+
+.fixed {
+    position: fixed;
+}
+
+.absolute {
+    position: absolute;
+}

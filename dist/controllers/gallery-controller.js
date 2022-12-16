@@ -15,9 +15,9 @@ function renderGallery() {
         </div>
         `;
     });
-    console.log('templates:', templates);
     elGallery.innerHTML = strHTMLs.join('');
 }
 function onSetTemplate(templateId) {
     setTemplate(templateId);
+    onSetEditorHidden(false);
 }
