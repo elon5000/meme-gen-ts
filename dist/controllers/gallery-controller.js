@@ -11,13 +11,15 @@ function renderGallery() {
     const strHTMLs = templates.map(template => {
         return `
         <div class="template-img-container">
-        <img onclick="onSetTemplate(+${template._id})" class="template-img" src="${template.url}" alt="${template.keywords[0]}" title="${template.keywords[0]}" />
+        <img id="${template._id}" onclick="onSetTemplate('${template._id}')" class="template-img" src="${template.url}" alt="${template.keywords[0]}" title="${template.keywords[0]}" />
         </div>
         `;
     });
     elGallery.innerHTML = strHTMLs.join('');
 }
 function onSetTemplate(templateId) {
+    console.log('template id from controller', templateId);
     setTemplate(templateId);
-    onSetEditorHidden(false);
+    onSetEditorHidden(true);
+    onSetCanvas();
 }

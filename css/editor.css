@@ -10,6 +10,18 @@
 }
 
 .editor {
-    height: 80vh;
-    background: rebeccapurple;
+    height: 82vh;
+    background: var(--dark);
+}
+
+.close-editor-btn {
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    background: none;
+    padding: 4px 8px;
+}
+
+#canvas {
+    background: var(--light);
 }
