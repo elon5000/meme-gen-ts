@@ -17,6 +17,7 @@ function onSetEditorHidden(isOpen: boolean) {
 
 function renderCanvas() {
     const elTemplateImg: CanvasImageSource = document.getElementById(getCurrTemplateId()) as CanvasImageSource
+    resizeElCanvas(elTemplateImg)
     renderCanvasTemplate(elTemplateImg)
 }
 
@@ -26,4 +27,9 @@ function renderCanvasTemplate(elTemplateImg: CanvasImageSource) {
 
 function setCanvasContext(ctx: CanvasRenderingContext2D) {
     gCtx = ctx
+}
+
+function resizeElCanvas(elTemplateImg: CanvasImageSource) {
+    gElCanvas.width = elTemplateImg.width as number
+    gElCanvas.height = elTemplateImg.height as number
 }

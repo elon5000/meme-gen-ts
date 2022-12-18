@@ -12,6 +12,7 @@ function onSetEditorHidden(isOpen) {
 }
 function renderCanvas() {
     const elTemplateImg = document.getElementById(getCurrTemplateId());
+    resizeElCanvas(elTemplateImg);
     renderCanvasTemplate(elTemplateImg);
 }
 function renderCanvasTemplate(elTemplateImg) {
@@ -19,4 +20,8 @@ function renderCanvasTemplate(elTemplateImg) {
 }
 function setCanvasContext(ctx) {
     gCtx = ctx;
+}
+function resizeElCanvas(elTemplateImg) {
+    gElCanvas.width = elTemplateImg.width;
+    gElCanvas.height = elTemplateImg.height;
 }
