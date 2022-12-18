@@ -14,16 +14,13 @@ function getTemplates() {
     return gTemplates;
 }
 function getCurrTemplateId() {
-    console.log(gCurrTemplate);
     if (!gCurrTemplate)
         return ('No template found');
     return gCurrTemplate._id;
 }
 function setTemplate(templateId) {
-    console.log('template id:', templateId);
     const newTemplate = gTemplates.find(template => template._id === templateId);
-    if (newTemplate === undefined)
+    if (!newTemplate)
         return console.log('Cannot set template');
     gCurrTemplate = newTemplate;
-    console.log('gCurrTemplate:', gCurrTemplate);
 }

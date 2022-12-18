@@ -1,6 +1,5 @@
 "use strict";
 function onInit() {
-    console.log('Initalizing gallery...');
     renderGallery();
 }
 function renderGallery() {
@@ -18,7 +17,6 @@ function renderGallery() {
     elGallery.innerHTML = strHTMLs.join('');
 }
 function onSetTemplate(templateId) {
-    console.log('template id from controller', templateId);
     setTemplate(templateId);
     onSetEditorHidden(true);
     onSetCanvas();

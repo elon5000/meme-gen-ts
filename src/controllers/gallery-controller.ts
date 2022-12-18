@@ -1,6 +1,5 @@
 
 function onInit() {
-    console.log('Initalizing gallery...')
     renderGallery()
 }
 
@@ -23,7 +22,6 @@ function renderGallery() {
 }
 
 function onSetTemplate(templateId:string) {
-    console.log('template id from controller', templateId);
     setTemplate(templateId)
     onSetEditorHidden(true)
     onSetCanvas()

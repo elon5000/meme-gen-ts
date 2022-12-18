@@ -25,19 +25,16 @@ function getTemplates() {
 }
 
 function getCurrTemplateId() {
-    console.log(gCurrTemplate)
     if (!gCurrTemplate) return ('No template found')
     return gCurrTemplate._id
 }
 
 function setTemplate(templateId: string) {
-    console.log('template id:',  templateId)
     const newTemplate: {
         _id: string
         url: string
         keywords: string[]
     } | undefined = gTemplates.find(template => template._id === templateId)
-    if (newTemplate === undefined) return console.log('Cannot set template')
+    if (!newTemplate) return console.log('Cannot set template')
     gCurrTemplate = newTemplate
-    console.log('gCurrTemplate:', gCurrTemplate)
 }
