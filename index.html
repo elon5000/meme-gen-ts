@@ -32,19 +32,21 @@
         <h5 class="main-layout copyrights">All rights reserved 2022©</h5>
     </footer>
     <div class="fixed flex column full-layout hidden editor-warpper">
-        <section class=" relative column main-layout editor">
-            <button onclick="onSetEditorHidden(false)" class="absolute close-editor-btn">✕</button>
-                <canvas id="canvas" width="336" height="336"></canvas>
-                <div class="editor-utils-container">
-                    <div class="input-container">
-                        <label for="textInput">Edit text:</label>
-                        <input id="textInput" type="text" placeholder="TOP TEXT">
-                    </div>
-                    <div class="input-container">
-                        <label for="colorInput">Text color:</label>
-                        <input id="colorInput" type="color">
-                    </div>
+        <button onclick="onSetEditorHidden(false)" class="absolute close-editor-btn">✕</button>
+        <section class="flex relative column main-layout editor">
+            <div class="relative canvas-container">
+                <canvas  id="canvas" width="336" height="336"></canvas>
+            </div>
+            <div class="flex column editor-utils-container">
+                <div class="input-container">
+                    <label for="textInput">Edit text:</label>
+                    <input id="textInput" type="text" placeholder="TOP TEXT">
                 </div>
+                <div class="input-container">
+                    <label for="colorInput">Text color:</label>
+                    <input id="colorInput" type="color">
+                </div>
+            </div>
         </section>
     </div>
     <script src="dist/services/meme-service.js"></script>

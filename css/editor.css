@@ -12,16 +12,29 @@
 .editor {
     height: 82vh;
     background: var(--dark);
+    justify-content: space-between;
 }
 
 .close-editor-btn {
+    top: 0;
+    left: 0;
     border: none;
     cursor: pointer;
     font-size: 2rem;
     background: none;
-    padding: 4px 8px;
+    padding: 8px 16px;
+    color: var(--light);
+    background: rgba(0, 0, 0, 0.653);
+}
+
+.canvas-container {
+    height: fit-content;
 }
 
 #canvas {
     background: var(--light);
+}
+
+.editor-utils-container {
+    flex: 1;
 }
