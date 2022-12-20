@@ -40,11 +40,12 @@ function renderCanvasLines() {
 function renderLine(line: Line) {
     if (!gCtx) return console.log('Cannot render canvas')
     const {color, font, size, align, txt} = line
+    console.log('color, font, size, align, txt:', color, font, size, align, txt)
     gCtx.lineWidth = 2
     gCtx.strokeStyle = color
     gCtx.fillStyle = 'black'
     gCtx.font = `${size}px ${font}`
-    gCtx.textAlign = align as CanvasTextAlign
+    gCtx.textAlign = align
     gCtx.textBaseline = 'middle'
     gCtx.fillText(txt, 100 ,100) // Draws (fills) a given text at the given (x, y) position.
     gCtx.strokeText(txt, 100 ,100) // Draws (strokes) a given text at the given (x, y) position.

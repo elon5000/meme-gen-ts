@@ -7,7 +7,7 @@ function resetMeme() {
         selectedLineIdx: 0,
         lines: [{
                 txt: 'TOP TEXT',
-                size: 2,
+                size: 40,
                 align: 'center',
                 color: 'white',
                 font: 'impact'

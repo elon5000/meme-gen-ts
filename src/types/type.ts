@@ -8,7 +8,7 @@ type Meme = {
 type Line = {
     txt: string
     size: number
-    align: string
+    align: CanvasTextAlign
     color: string
     font: string
 }
