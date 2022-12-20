@@ -40,7 +40,7 @@
             <div class="flex column editor-utils-container">
                 <div class="input-container">
                     <label for="textInput">Edit text:</label>
-                    <input id="textInput" type="text" placeholder="TOP TEXT">
+                    <input oninput="onSetCurrTextLine(this.value)" id="textInput" type="text" placeholder="TOP TEXT">
                 </div>
                 <div class="input-container">
                     <label for="colorInput">Text color:</label>

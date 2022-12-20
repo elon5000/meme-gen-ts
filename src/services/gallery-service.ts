@@ -1,9 +1,5 @@
 
-const gTemplates: {
-    _id: string
-    url: string
-    keywords: string[]
-}[] = [
+const gTemplates: Template[] = [
         { _id: "t1", url: 'imgs/templates/1.jpg', keywords: ['look', 'around', 'funny', 'תראה', 'מצחיק', 'סביב'] },
         { _id: "t2", url: 'imgs/templates/2.jpg', keywords: ['trump', 'president', 'funny', 'טראמפ', 'נשיא', 'מצחיק'] },
         { _id: "t3", url: 'imgs/templates/3.jpg', keywords: ['cute', 'dog', 'love', 'חמוד', 'כלב', 'אהבה'] },
@@ -14,11 +10,7 @@ const gTemplates: {
         { _id: "t8", url: 'imgs/templates/8.jpg', keywords: ['cute', 'evil', 'baby', 'חמוד', 'תינוק', 'רשע'] },
     ]
 
-let gCurrTemplate: {
-    _id: string
-    url: string
-    keywords: string[]
-}
+let gCurrTemplate: Template | null
 
 function getTemplates() {
     return gTemplates
@@ -30,11 +22,7 @@ function getCurrTemplateId() {
 }
 
 function setTemplate(templateId: string) {
-    const newTemplate: {
-        _id: string
-        url: string
-        keywords: string[]
-    } | undefined = gTemplates.find(template => template._id === templateId)
+    const newTemplate: Template | undefined = gTemplates.find(template => template._id === templateId)
     if (!newTemplate) return console.log('Cannot set template')
     gCurrTemplate = newTemplate
 }

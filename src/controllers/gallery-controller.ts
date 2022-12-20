@@ -6,11 +6,7 @@ function onInit() {
 function renderGallery() {
     const elGallery: HTMLElement | null = document.querySelector('.gallery')
     if (elGallery === null) return
-    const templates: {
-        _id: string
-        url: string
-        keywords: string[]
-    }[] = getTemplates()
+    const templates: Template[] = getTemplates()
     const strHTMLs: string[] = templates.map(template => {
         return `
         <div class="template-img-container">
