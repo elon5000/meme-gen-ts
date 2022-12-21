@@ -35,7 +35,12 @@ function renderCanvasTemplate(elTemplateImg) {
 }
 function renderCanvasLines() {
     const meme = getMeme();
-    meme.lines.forEach(line => renderLine(line));
+    const currLineIdx = getCurrLineIdx();
+    meme.lines.forEach((line, idx) => {
+        if (idx === currLineIdx)
+            renderRect(line);
+        renderLine(line);
+    });
 }
 function renderLine(line) {
     if (!gCtx)
@@ -49,6 +54,17 @@ function renderLine(line) {
     gCtx.textBaseline = 'middle';
     gCtx.fillText(txt, pos.x, pos.y);
     gCtx.strokeText(txt, pos.x, pos.y);
+}
+function renderRect(line) {
+    if (!gCtx)
+        return console.log('Cannot render canvas');
+    const { pos, size, txt, color } = line;
+    const { x, y } = pos;
+    const txtLength = txt.length * size;
+    gCtx.beginPath();
+    gCtx.rect(x - txtLength / 2, y - size / 1.5, txtLength, size + 4);
+    gCtx.strokeStyle = color;
+    gCtx.stroke();
 }
 function setCanvasContext(ctx) {
     gCtx = ctx;

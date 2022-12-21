@@ -45,20 +45,35 @@ function renderCanvasTemplate(elTemplateImg: CanvasImageSource) {
 
 function renderCanvasLines() {
     const meme: Meme = getMeme()
-    meme.lines.forEach(line => renderLine(line))
+    const currLineIdx: number = getCurrLineIdx()
+    meme.lines.forEach((line, idx) => {
+        if (idx === currLineIdx) renderRect(line)
+        renderLine(line)
+    })
 }
 
 function renderLine(line: Line) {
     if (!gCtx) return console.log('Cannot render canvas')
-    const {color,strokeColor , font, size, align, txt, pos} = line
+    const { color, strokeColor, font, size, align, txt, pos } = line
     gCtx.lineWidth = 2
     gCtx.strokeStyle = strokeColor
     gCtx.fillStyle = color
     gCtx.font = `${size}px ${font}`
     gCtx.textAlign = align
     gCtx.textBaseline = 'middle'
-    gCtx.fillText(txt, pos.x ,pos.y) // Draws (fills) a given text at the given (x, y) position.
-    gCtx.strokeText(txt, pos.x ,pos.y) // Draws (strokes) a given text at the given (x, y) position.
+    gCtx.fillText(txt, pos.x, pos.y) // Draws (fills) a given text at the given (x, y) position.
+    gCtx.strokeText(txt, pos.x, pos.y) // Draws (strokes) a given text at the given (x, y) position.
+}
+
+function renderRect(line: Line) {
+    if (!gCtx) return console.log('Cannot render canvas')
+    const { pos, size, txt, color } = line
+    const { x, y } = pos
+    const txtLength: number = txt.length * size
+    gCtx.beginPath()
+    gCtx.rect(x - txtLength / 2, y - size / 1.5, txtLength, size + 4)
+    gCtx.strokeStyle = color
+    gCtx.stroke()
 }
 
 function setCanvasContext(ctx: CanvasRenderingContext2D) {

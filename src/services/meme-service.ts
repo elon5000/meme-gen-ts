@@ -30,6 +30,10 @@ function getMeme() {
     return gMeme
 }
 
+function getCurrLineIdx() {
+    return gCurrLineIdx
+}
+
 function addLine() {
     gMeme.lines.push(_createLine('NEW LINE'))
 }
