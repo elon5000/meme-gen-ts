@@ -46,9 +46,14 @@
                     <label for="colorInput">Text color:</label>
                     <input id="colorInput" type="color">
                 </div>
+                <div class="flex row input-container meme-btns">
+                    <button onclick="onAddLine()">Add line</button>
+                    <button onclick="onSwitchLine()">Switch line</button>
+                </div>
             </div>
         </section>
     </div>
+    <script src="dist/services/util-service.js"></script>
     <script src="dist/services/meme-service.js"></script>
     <script src="dist/services/gallery-service.js"></script>
     <script src="dist/controllers/meme-controller.js"></script>

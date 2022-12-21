@@ -1,6 +1,15 @@
 "use strict";
 const gElCanvas = document.getElementById('canvas');
 let gCtx;
+function onAddLine() {
+    addLine();
+    switchLine();
+    renderCanvas();
+}
+function onSwitchLine() {
+    switchLine();
+    renderCanvas();
+}
 function onSetCanvas() {
     resetMeme();
     const context = gElCanvas.getContext('2d');
@@ -31,16 +40,15 @@ function renderCanvasLines() {
 function renderLine(line) {
     if (!gCtx)
         return console.log('Cannot render canvas');
-    const { color, font, size, align, txt } = line;
-    console.log('color, font, size, align, txt:', color, font, size, align, txt);
+    const { color, strokeColor, font, size, align, txt, pos } = line;
     gCtx.lineWidth = 2;
-    gCtx.strokeStyle = color;
-    gCtx.fillStyle = 'black';
+    gCtx.strokeStyle = strokeColor;
+    gCtx.fillStyle = color;
     gCtx.font = `${size}px ${font}`;
     gCtx.textAlign = align;
     gCtx.textBaseline = 'middle';
-    gCtx.fillText(txt, 100, 100);
-    gCtx.strokeText(txt, 100, 100);
+    gCtx.fillText(txt, pos.x, pos.y);
+    gCtx.strokeText(txt, pos.x, pos.y);
 }
 function setCanvasContext(ctx) {
     gCtx = ctx;

@@ -10,7 +10,13 @@ type Line = {
     size: number
     align: CanvasTextAlign
     color: string
+    strokeColor: string
     font: string
+    pos: {
+        x: number
+        y: number
+    }
+    _id: string
 }
 
 type Template = {

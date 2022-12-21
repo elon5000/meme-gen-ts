@@ -4,6 +4,17 @@ const gElCanvas: HTMLCanvasElement = document.getElementById('canvas') as HTMLCa
 let gCtx: CanvasRenderingContext2D | null
 
 
+function onAddLine() {
+    addLine()
+    switchLine()
+    renderCanvas()
+}
+
+function onSwitchLine() {
+    switchLine()
+    renderCanvas()
+}
+
 function onSetCanvas() {
     resetMeme()
     const context: CanvasRenderingContext2D = gElCanvas.getContext('2d') as CanvasRenderingContext2D
@@ -39,16 +50,15 @@ function renderCanvasLines() {
 
 function renderLine(line: Line) {
     if (!gCtx) return console.log('Cannot render canvas')
-    const {color, font, size, align, txt} = line
-    console.log('color, font, size, align, txt:', color, font, size, align, txt)
+    const {color,strokeColor , font, size, align, txt, pos} = line
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = color
-    gCtx.fillStyle = 'black'
+    gCtx.strokeStyle = strokeColor
+    gCtx.fillStyle = color
     gCtx.font = `${size}px ${font}`
     gCtx.textAlign = align
     gCtx.textBaseline = 'middle'
-    gCtx.fillText(txt, 100 ,100) // Draws (fills) a given text at the given (x, y) position.
-    gCtx.strokeText(txt, 100 ,100) // Draws (strokes) a given text at the given (x, y) position.
+    gCtx.fillText(txt, pos.x ,pos.y) // Draws (fills) a given text at the given (x, y) position.
+    gCtx.strokeText(txt, pos.x ,pos.y) // Draws (strokes) a given text at the given (x, y) position.
 }
 
 function setCanvasContext(ctx: CanvasRenderingContext2D) {
