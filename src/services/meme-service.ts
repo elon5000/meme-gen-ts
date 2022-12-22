@@ -51,6 +51,12 @@ function switchLine() {
     if (gCurrLineIdx >= gMeme.lines.length) gCurrLineIdx = 0
 }
 
+function removeLine() {
+    if (!gMeme.lines.length) return console.log('No lines to remove')
+    gMeme.lines.splice(gCurrLineIdx, 1)
+    gCurrLineIdx--
+}
+
 function _createLine(txt: string) {
     return {
         txt,

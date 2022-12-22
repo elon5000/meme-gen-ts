@@ -29,6 +29,10 @@ function onSetCurrTextLine(text) {
     setCurrTextLine(text);
     renderCanvas();
 }
+function onRemoveLine() {
+    removeLine();
+    renderCanvas();
+}
 function onSetEditorHidden(isOpen) {
     const elEditorWarpper = document.querySelector('.editor-warpper');
     isOpen ? elEditorWarpper.classList.remove('hidden') : elEditorWarpper.classList.add('hidden');
