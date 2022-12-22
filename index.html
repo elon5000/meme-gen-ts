@@ -35,16 +35,22 @@
         <button onclick="onSetEditorHidden(false)" class="absolute close-editor-btn">✕</button>
         <section class="flex relative column main-layout editor">
             <div class="relative canvas-container">
-                <canvas  id="canvas" width="336" height="336"></canvas>
+                <canvas id="canvas" width="336" height="336"></canvas>
             </div>
             <div class="flex column editor-utils-container">
                 <div class="input-container">
                     <label for="textInput">Edit text:</label>
                     <input oninput="onSetCurrTextLine(this.value)" id="textInput" type="text" placeholder="TOP TEXT">
                 </div>
-                <div class="input-container">
-                    <label for="colorInput">Text color:</label>
-                    <input id="colorInput" oninput="onSetColor(this.value)" type="color">
+                <div class="flex row color-inputs-container">
+                    <div class="input-container">
+                        <label for="colorInput">Text color:</label>
+                        <input id="colorInput" oninput="onSetColor(this.value)" type="color">
+                    </div>
+                    <div class="input-container">
+                        <label for="strokeColorInput">Stroke color:</label>
+                        <input id="strokeColorInput" oninput="onSetStrokeColor(this.value)" type="color">
+                    </div>
                 </div>
                 <div class="flex row input-container meme-btns">
                     <button onclick="onAddLine()">Add line</button>

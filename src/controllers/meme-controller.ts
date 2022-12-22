@@ -3,6 +3,7 @@ const gElCanvas: HTMLCanvasElement = document.getElementById('canvas') as HTMLCa
 
 let gCtx: CanvasRenderingContext2D | null
 
+let gIsExport:boolean = false
 
 function onAddLine() {
     addLine()
@@ -17,6 +18,11 @@ function onSwitchLine() {
 
 function onSetColor(color:string) {
     setColor(color)
+    renderCanvas()
+}
+
+function onSetStrokeColor(color:string) {
+    setStrokeColor(color)
     renderCanvas()
 }
 
@@ -52,7 +58,7 @@ function renderCanvasLines() {
     const meme: Meme = getMeme()
     const currLineIdx: number = getCurrLineIdx()
     meme.lines.forEach((line, idx) => {
-        if (idx === currLineIdx) renderRect(line)
+        if (idx === currLineIdx && !gIsExport) renderRect(line)
         renderLine(line)
     })
 }

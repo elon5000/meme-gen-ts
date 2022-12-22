@@ -15,7 +15,7 @@ function resetMeme() {
                 color: 'white',
                 strokeColor: 'black',
                 font: 'impact',
-                pos: { x: 100, y: 40 },
+                pos: { x: 120, y: 40 },
                 _id: makeId()
             }
         ]
@@ -26,8 +26,12 @@ function setCurrTextLine(text: string) {
     gMeme.lines[gCurrLineIdx].txt = text
 }
 
-function setColor(color:string) {
+function setColor(color: string) {
     gMeme.lines[gCurrLineIdx].color = color
+}
+
+function setStrokeColor(color: string) {
+    gMeme.lines[gCurrLineIdx].strokeColor = color
 }
 
 function getMeme() {
@@ -55,7 +59,7 @@ function _createLine(txt: string) {
         color: 'white',
         strokeColor: 'black',
         font: 'impact',
-        pos: { x: 100, y: 100 },
+        pos: { x: 120, y: 140 },
         _id: makeId()
     } as Line
 }

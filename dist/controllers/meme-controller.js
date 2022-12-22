@@ -1,6 +1,7 @@
 "use strict";
 const gElCanvas = document.getElementById('canvas');
 let gCtx;
+let gIsExport = false;
 function onAddLine() {
     addLine();
     switchLine();
@@ -12,6 +13,10 @@ function onSwitchLine() {
 }
 function onSetColor(color) {
     setColor(color);
+    renderCanvas();
+}
+function onSetStrokeColor(color) {
+    setStrokeColor(color);
     renderCanvas();
 }
 function onSetCanvas() {
@@ -41,7 +46,7 @@ function renderCanvasLines() {
     const meme = getMeme();
     const currLineIdx = getCurrLineIdx();
     meme.lines.forEach((line, idx) => {
-        if (idx === currLineIdx)
+        if (idx === currLineIdx && !gIsExport)
             renderRect(line);
         renderLine(line);
     });
