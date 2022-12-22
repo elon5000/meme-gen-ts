@@ -22,6 +22,9 @@ function resetMeme() {
 function setCurrTextLine(text) {
     gMeme.lines[gCurrLineIdx].txt = text;
 }
+function setColor(color) {
+    gMeme.lines[gCurrLineIdx].color = color;
+}
 function getMeme() {
     return gMeme;
 }

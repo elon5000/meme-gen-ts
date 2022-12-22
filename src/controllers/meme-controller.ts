@@ -15,6 +15,11 @@ function onSwitchLine() {
     renderCanvas()
 }
 
+function onSetColor(color:string) {
+    setColor(color)
+    renderCanvas()
+}
+
 function onSetCanvas() {
     resetMeme()
     const context: CanvasRenderingContext2D = gElCanvas.getContext('2d') as CanvasRenderingContext2D
@@ -67,12 +72,12 @@ function renderLine(line: Line) {
 
 function renderRect(line: Line) {
     if (!gCtx) return console.log('Cannot render canvas')
-    const { pos, size, txt, color } = line
+    const { pos, size, txt, strokeColor } = line
     const { x, y } = pos
     const txtLength: number = txt.length * size
     gCtx.beginPath()
     gCtx.rect(x - txtLength / 2, y - size / 1.5, txtLength, size + 4)
-    gCtx.strokeStyle = color
+    gCtx.strokeStyle = strokeColor
     gCtx.stroke()
 }
 

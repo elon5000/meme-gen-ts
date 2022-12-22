@@ -26,6 +26,10 @@ function setCurrTextLine(text: string) {
     gMeme.lines[gCurrLineIdx].txt = text
 }
 
+function setColor(color:string) {
+    gMeme.lines[gCurrLineIdx].color = color
+}
+
 function getMeme() {
     return gMeme
 }

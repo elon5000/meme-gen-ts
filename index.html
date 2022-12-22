@@ -44,7 +44,7 @@
                 </div>
                 <div class="input-container">
                     <label for="colorInput">Text color:</label>
-                    <input id="colorInput" type="color">
+                    <input id="colorInput" oninput="onSetColor(this.value)" type="color">
                 </div>
                 <div class="flex row input-container meme-btns">
                     <button onclick="onAddLine()">Add line</button>
