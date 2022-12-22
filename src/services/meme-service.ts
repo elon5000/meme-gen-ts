@@ -34,6 +34,10 @@ function setStrokeColor(color: string) {
     gMeme.lines[gCurrLineIdx].strokeColor = color
 }
 
+function setLineSize(diff:number) {
+    gMeme.lines[gCurrLineIdx].size += diff
+}
+
 function getMeme() {
     return gMeme
 }
@@ -54,7 +58,6 @@ function switchLine() {
 function removeLine() {
     if (!gMeme.lines.length) return console.log('No lines to remove')
     gMeme.lines.splice(gCurrLineIdx, 1)
-    gCurrLineIdx--
 }
 
 function _createLine(txt: string) {

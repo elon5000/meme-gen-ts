@@ -38,8 +38,14 @@ function onSetCurrTextLine(text: string) {
     renderCanvas()
 }
 
+function onSetLineSize(diff:number) {
+    setLineSize(diff)
+    renderCanvas()
+}
+
 function onRemoveLine() {
     removeLine()
+    switchLine()
     renderCanvas()
 }
 

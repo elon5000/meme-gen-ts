@@ -29,8 +29,13 @@ function onSetCurrTextLine(text) {
     setCurrTextLine(text);
     renderCanvas();
 }
+function onSetLineSize(diff) {
+    setLineSize(diff);
+    renderCanvas();
+}
 function onRemoveLine() {
     removeLine();
+    switchLine();
     renderCanvas();
 }
 function onSetEditorHidden(isOpen) {

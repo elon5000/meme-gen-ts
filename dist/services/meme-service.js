@@ -28,6 +28,9 @@ function setColor(color) {
 function setStrokeColor(color) {
     gMeme.lines[gCurrLineIdx].strokeColor = color;
 }
+function setLineSize(diff) {
+    gMeme.lines[gCurrLineIdx].size += diff;
+}
 function getMeme() {
     return gMeme;
 }
@@ -46,7 +49,6 @@ function removeLine() {
     if (!gMeme.lines.length)
         return console.log('No lines to remove');
     gMeme.lines.splice(gCurrLineIdx, 1);
-    gCurrLineIdx--;
 }
 function _createLine(txt) {
     return {
