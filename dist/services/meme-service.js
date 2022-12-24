@@ -29,6 +29,8 @@ function setStrokeColor(color) {
     gMeme.lines[gCurrLineIdx].strokeColor = color;
 }
 function setLineSize(diff) {
+    if (gMeme.lines[gCurrLineIdx].size + diff <= 4)
+        return;
     gMeme.lines[gCurrLineIdx].size += diff;
 }
 function getMeme() {

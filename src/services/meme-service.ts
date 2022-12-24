@@ -35,6 +35,7 @@ function setStrokeColor(color: string) {
 }
 
 function setLineSize(diff:number) {
+    if (gMeme.lines[gCurrLineIdx].size + diff <= 4) return
     gMeme.lines[gCurrLineIdx].size += diff
 }
 

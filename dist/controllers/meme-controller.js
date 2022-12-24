@@ -4,12 +4,17 @@ let gCtx;
 let gIsExport = false;
 function onAddLine() {
     addLine();
-    switchLine();
+    onSwitchLine();
     renderCanvas();
 }
 function onSwitchLine() {
     switchLine();
     renderCanvas();
+    renderInputValues();
+}
+function onRemoveLine() {
+    removeLine();
+    onSwitchLine();
 }
 function onSetColor(color) {
     setColor(color);
@@ -31,11 +36,6 @@ function onSetCurrTextLine(text) {
 }
 function onSetLineSize(diff) {
     setLineSize(diff);
-    renderCanvas();
-}
-function onRemoveLine() {
-    removeLine();
-    switchLine();
     renderCanvas();
 }
 function onSetEditorHidden(isOpen) {
@@ -78,11 +78,15 @@ function renderRect(line) {
         return console.log('Cannot render canvas');
     const { pos, size, txt, strokeColor } = line;
     const { x, y } = pos;
-    const txtLength = txt.length * size;
+    const txtLength = txt.length * size / 1.2;
     gCtx.beginPath();
-    gCtx.rect(x - txtLength / 2, y - size / 1.5, txtLength, size + 4);
+    gCtx.rect(x - txtLength / 2, y - size / 1.5, txtLength, size + 8);
     gCtx.strokeStyle = strokeColor;
     gCtx.stroke();
+}
+function renderInputValues() {
+    const elEditorUtilsContainer = document.querySelector('.editor-utils-container');
+    console.log(elEditorUtilsContainer);
 }
 function setCanvasContext(ctx) {
     gCtx = ctx;

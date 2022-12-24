@@ -7,13 +7,19 @@ let gIsExport:boolean = false
 
 function onAddLine() {
     addLine()
-    switchLine()
+    onSwitchLine()
     renderCanvas()
 }
 
 function onSwitchLine() {
     switchLine()
     renderCanvas()
+    renderInputValues()
+}
+
+function onRemoveLine() {
+    removeLine()
+    onSwitchLine()
 }
 
 function onSetColor(color:string) {
@@ -40,12 +46,6 @@ function onSetCurrTextLine(text: string) {
 
 function onSetLineSize(diff:number) {
     setLineSize(diff)
-    renderCanvas()
-}
-
-function onRemoveLine() {
-    removeLine()
-    switchLine()
     renderCanvas()
 }
 
@@ -91,11 +91,16 @@ function renderRect(line: Line) {
     if (!gCtx) return console.log('Cannot render canvas')
     const { pos, size, txt, strokeColor } = line
     const { x, y } = pos
-    const txtLength: number = txt.length * size
+    const txtLength: number = txt.length * size / 1.2
     gCtx.beginPath()
-    gCtx.rect(x - txtLength / 2, y - size / 1.5, txtLength, size + 4)
+    gCtx.rect(x - txtLength / 2, y - size / 1.5, txtLength, size + 8)
     gCtx.strokeStyle = strokeColor
     gCtx.stroke()
+}
+
+function renderInputValues() {
+    const elEditorUtilsContainer:HTMLFormElement = document.querySelector('.editor-utils-container') as HTMLFormElement
+    console.log(elEditorUtilsContainer)
 }
 
 function setCanvasContext(ctx: CanvasRenderingContext2D) {
