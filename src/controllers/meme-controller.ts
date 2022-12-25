@@ -37,6 +37,7 @@ function onSetCanvas() {
     const context: CanvasRenderingContext2D = gElCanvas.getContext('2d') as CanvasRenderingContext2D
     setCanvasContext(context)
     renderCanvas()
+    renderInputValues()
 }
 
 function onSetCurrTextLine(text: string) {
@@ -103,7 +104,8 @@ function renderInputValues() {
     const elInputs: HTMLInputElement[] = Array.from(elEditorUtilsContainer.querySelectorAll('input'))
     const currLine:Line = getMeme().lines[getCurrLineIdx()]
     elInputs.forEach((elInput, idx) => {
-        elInputs[idx].value = currLine[elInput.id as keyof Line] as string
+        const value:string = currLine[elInput.id as keyof Line] as string
+        elInputs[idx].value = value
     })
 }
 

@@ -18,6 +18,7 @@ function resetMeme() {
             }
         ]
     };
+    gCurrLineIdx = 0;
 }
 function setCurrTextLine(text) {
     gMeme.lines[gCurrLineIdx].txt = text;
@@ -57,8 +58,8 @@ function _createLine(txt) {
         txt,
         size: 22,
         align: 'center',
-        color: 'white',
-        strokeColor: 'black',
+        color: '#FFFFFF',
+        strokeColor: '#000000',
         font: 'impact',
         pos: { x: 120, y: 140 },
         _id: makeId()

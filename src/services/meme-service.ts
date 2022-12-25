@@ -20,6 +20,7 @@ function resetMeme() {
             }
         ]
     }
+    gCurrLineIdx = 0
 }
 
 function setCurrTextLine(text: string) {
@@ -34,7 +35,7 @@ function setStrokeColor(color: string) {
     gMeme.lines[gCurrLineIdx].strokeColor = color
 }
 
-function setLineSize(diff:number) {
+function setLineSize(diff: number) {
     if (gMeme.lines[gCurrLineIdx].size + diff <= 4) return
     gMeme.lines[gCurrLineIdx].size += diff
 }
@@ -66,8 +67,8 @@ function _createLine(txt: string) {
         txt,
         size: 22,
         align: 'center' as CanvasTextAlign,
-        color: 'white',
-        strokeColor: 'black',
+        color: '#FFFFFF',
+        strokeColor: '#000000',
         font: 'impact',
         pos: { x: 120, y: 140 },
         _id: makeId()

@@ -29,6 +29,7 @@ function onSetCanvas() {
     const context = gElCanvas.getContext('2d');
     setCanvasContext(context);
     renderCanvas();
+    renderInputValues();
 }
 function onSetCurrTextLine(text) {
     setCurrTextLine(text);
@@ -89,7 +90,8 @@ function renderInputValues() {
     const elInputs = Array.from(elEditorUtilsContainer.querySelectorAll('input'));
     const currLine = getMeme().lines[getCurrLineIdx()];
     elInputs.forEach((elInput, idx) => {
-        elInputs[idx].value = currLine[elInput.id];
+        const value = currLine[elInput.id];
+        elInputs[idx].value = value;
     });
 }
 function setCanvasContext(ctx) {
