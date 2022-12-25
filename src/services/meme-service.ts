@@ -12,8 +12,8 @@ function resetMeme() {
                 txt: 'TOP TEXT',
                 size: 22,
                 align: 'center' as CanvasTextAlign,
-                color: 'white',
-                strokeColor: 'black',
+                color: '#FFFFFF',
+                strokeColor: '#000000',
                 font: 'impact',
                 pos: { x: 120, y: 40 },
                 _id: makeId()

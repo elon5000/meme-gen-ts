@@ -3,7 +3,7 @@ const gElCanvas: HTMLCanvasElement = document.getElementById('canvas') as HTMLCa
 
 let gCtx: CanvasRenderingContext2D | null
 
-let gIsExport:boolean = false
+let gIsExport: boolean = false
 
 function onAddLine() {
     addLine()
@@ -22,12 +22,12 @@ function onRemoveLine() {
     onSwitchLine()
 }
 
-function onSetColor(color:string) {
+function onSetColor(color: string) {
     setColor(color)
     renderCanvas()
 }
 
-function onSetStrokeColor(color:string) {
+function onSetStrokeColor(color: string) {
     setStrokeColor(color)
     renderCanvas()
 }
@@ -44,7 +44,7 @@ function onSetCurrTextLine(text: string) {
     renderCanvas()
 }
 
-function onSetLineSize(diff:number) {
+function onSetLineSize(diff: number) {
     setLineSize(diff)
     renderCanvas()
 }
@@ -99,8 +99,12 @@ function renderRect(line: Line) {
 }
 
 function renderInputValues() {
-    const elEditorUtilsContainer:HTMLFormElement = document.querySelector('.editor-utils-container') as HTMLFormElement
-    console.log(elEditorUtilsContainer)
+    const elEditorUtilsContainer: HTMLFormElement = document.querySelector('.editor-utils-container') as HTMLFormElement
+    const elInputs: HTMLInputElement[] = Array.from(elEditorUtilsContainer.querySelectorAll('input'))
+    const currLine:Line = getMeme().lines[getCurrLineIdx()]
+    elInputs.forEach((elInput, idx) => {
+        elInputs[idx].value = currLine[elInput.id as keyof Line] as string
+    })
 }
 
 function setCanvasContext(ctx: CanvasRenderingContext2D) {

@@ -86,7 +86,11 @@ function renderRect(line) {
 }
 function renderInputValues() {
     const elEditorUtilsContainer = document.querySelector('.editor-utils-container');
-    console.log(elEditorUtilsContainer);
+    const elInputs = Array.from(elEditorUtilsContainer.querySelectorAll('input'));
+    const currLine = getMeme().lines[getCurrLineIdx()];
+    elInputs.forEach((elInput, idx) => {
+        elInputs[idx].value = currLine[elInput.id];
+    });
 }
 function setCanvasContext(ctx) {
     gCtx = ctx;
